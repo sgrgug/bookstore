@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('publication_year');
-            $table->string('genre');
+            $table->unsignedBigInteger('genre_id');
+            $table->foreign('genre_id')->references('id')->on('genres');
             $table->integer('rating');
             $table->integer('price');
             $table->string('image');
