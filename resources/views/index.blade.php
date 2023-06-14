@@ -12,7 +12,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 @foreach ($pop_books as $book)
-                    <a href="#">
+                    <a href="{{ route('product', $book->id) }}">
                         <div class="border-[1px] flex flex-col justify-center items-center hover:shadow-lg">
                             <div>
                                 <img class="h-40" src="{{ asset('/assets/images/book/' . $book->image) }}" alt="">
@@ -39,7 +39,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 @foreach ($new_books as $book)
-                    <a href="$">
+                    <a href="{{ route('product', $book->id) }}">
                         <div class="border-[1px] flex flex-col justify-center items-center hover:shadow-lg">
                             <div>
                                 <img class="h-40" src="{{ asset('/assets/images/book/' . $book->image) }}" alt="">

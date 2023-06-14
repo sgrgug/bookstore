@@ -19,7 +19,7 @@
             <ion-icon class="text-2xl" name="menu-outline"></ion-icon>
         </div>
         <div>
-            <x-application-logo/>
+            <a href="/"><x-application-logo/></a>
         </div>
         <div class="hidden lg:block bg-blue-700">
             <form action="" method="get">
@@ -42,7 +42,7 @@
                     Register
                 </div>
             </div>
-            <ion-icon class="text-2xl" name="cart-outline"></ion-icon>
+            <a href="{{ route('my_cart') }}"><ion-icon class="text-2xl" name="cart-outline"></ion-icon></a>
         </div>
     </div>
 </div>
