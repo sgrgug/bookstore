@@ -6,21 +6,6 @@
         <div class="px-5 py-1 lg:px-24 my-16">
 
 
-
-            {{-- <div class="grid grid-cols-1 lg:grid-cols-4">
-                <div class="border-2 col-span-1 py-4 px-5">
-                    <div class="text-blue-500 font-bold border-b-2">Genres</div>
-                    <div class="py-5">
-                        @foreach ($genres as $genre)
-                            <a class="hover:text-blue-600" href="#">{{ $genre->genre }}</a> / 
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-span-3">
-
-                </div>
-            </div> --}}
-
             <div class="w-full overflow-hidden">
                 <div class="w-full lg:w-[22%] float-left py-4 px-5 border-2 m-2">
                     <div class="text-blue-500 font-bold">Genres</div>

@@ -31,7 +31,6 @@
                     <div class="mt-4 font-bold">Quantity</div>
                     <form action="{{ route('product', $book->id) }}" method="post">
                         @csrf
-                        <input type="hidden" name="price" value="{{ $book->price }}">
                         <input class="w-14" type="number" name="qty" id="" value="1" min="1"><br />
                         <input class="w-full bg-green-700 text-white my-2 p-3 cursor-pointer" type="submit" value="Add to cart">
                     </form>

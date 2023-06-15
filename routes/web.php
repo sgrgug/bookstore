@@ -31,7 +31,6 @@ Route::get('/product/{id}', [ProductController::class, "showProduct"])->name('pr
 Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name('store');
 
 
-Route::post('/product/{id}', [ProductController::class, "addToCart"])->name('add_to_cart');
 
 
 Route::middleware('auth')->group(function () {
@@ -40,6 +39,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/my_cart', [MyCartController::class, 'index'])->name('my_cart');
+    Route::post('/my_cart/{id}', [MyCartController::class, 'destroy'])->name('my_cart_delete');
+
+    //add to cart
+    Route::post('/product/{id}', [ProductController::class, "addToCart"])->name('add_to_cart');
 });
 
 require __DIR__.'/auth.php';

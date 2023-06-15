@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Genre;
+use App\Models\MyCart;
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -47,17 +48,30 @@ class ProductController extends Controller
 
     public function addToCart(Request $request, $id)
     {
+        // $mycart = MyCart::where('user_id', auth()->user()->id)->get();
 
+        //get book info acc to $id
+        $books = Book::where('id', $id)->get();
 
-        $data = [
-            'name' => 'sagar',
-            'address' => 'pokhara',
-            'qty' => $request->qty,
-            'price' => $request->price,
-        ];
+        foreach ($books as $key => $book) {
+            $book_title = $book->title;
+            $book_photo = $book->image;
+            $book_price = $book->price;
+        }
 
-        Session::put('u_id', $data);
+        $mycart = new MyCart();
 
-        return redirect()->route('product', $id)->with('status', "Successfully Added!");
+        $mycart->user_id = auth()->user()->id;
+        $mycart->book_id = $id;
+        $mycart->book_name = $book_title;
+        $mycart->photo = $book_photo;
+        $mycart->quantity = $request->qty;
+        $mycart->price = $book_price;
+        $mycart->total = $request->qty * $book->price;
+
+        $mycart->save();
+
+        return redirect()->route('product', $id)->with('status', 'Added!');
     }
+
 }
