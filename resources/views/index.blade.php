@@ -22,7 +22,7 @@
                                     <h1 class="font-bold">{{ $book->title }}</h1>
                                 </div>
                                 <div class="text-slate-500">
-                                    $ {{ $book->price }}
+                                    $ {{ $book->price }}.00
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                     <h1 class="font-bold">{{ $book->title }}</h1>
                                 </div>
                                 <div class="text-slate-500">
-                                    $ {{ $book->price }}
+                                    $ {{ $book->price }}.00
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,7 @@
                 <div class="px-7 py-14 md:py-10 md:px-20 border-l-2">
                     <span class="text-slate-500">{{ $book_genre->genre }}</span>
                     <h1 class="text-3xl font-bold">{{ $book->title }}</h1>
-                    <span class="font-bold text-xl inline-block py-3">${{ $book->price }}</span><br />
+                    <span class="font-bold text-xl inline-block py-3">${{ $book->price }}.00</span><br />
                     
                     <div class="py-4">
                         <div class="inline-block font-bold italic px-3">

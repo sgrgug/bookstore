@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\MyCartController;
 
 /*
@@ -29,6 +30,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/product/{id}', [ProductController::class, "showProduct"])->name('product');
 Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name('store');
+Route::get('/search', [SearchController::class, "search"])->name('search');
 
 
 
