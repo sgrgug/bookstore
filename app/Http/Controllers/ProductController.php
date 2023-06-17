@@ -12,9 +12,15 @@ class ProductController extends Controller
 {
     public function showProduct($id)
     {
-        $book = Book::find($id);
+        $book = Book::where('id', $id)->exists();
 
-        $book_genre = Book::find($id)->genre;
+        if($book){
+            $book = Book::find($id);
+        
+            $book_genre = Book::find($id)->genre;
+        } else {
+            return 0;
+        }
 
         return view('product', compact('book', 'book_genre'));
     }
@@ -48,7 +54,6 @@ class ProductController extends Controller
 
     public function addToCart(Request $request, $id)
     {
-        // $mycart = MyCart::where('user_id', auth()->user()->id)->get();
 
         //get book info acc to $id
         $books = Book::where('id', $id)->get();

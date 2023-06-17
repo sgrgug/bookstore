@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\MyCartController;
+use App\Http\Controllers\EsewaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,13 @@ use App\Http\Controllers\MyCartController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
 Route::get('/product/{id}', [ProductController::class, "showProduct"])->name('product');
-Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name('store');
 Route::get('/search', [SearchController::class, "search"])->name('search');
+Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name('store');
 
 
 
@@ -45,6 +42,12 @@ Route::middleware('auth')->group(function () {
 
     //add to cart
     Route::post('/product/{id}', [ProductController::class, "addToCart"])->name('add_to_cart');
+
+
+    //paywith esewa
+    Route::post('/esewa', [EsewaController::class, 'esewaPay'])->name('esewa');
+    Route::get('/success', [EsewaController::class, 'esewaPaySuccess']);
+    Route::get('/failure', [EsewaController::class, 'esewaPayFailure']);
 });
 
 require __DIR__.'/auth.php';

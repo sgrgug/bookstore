@@ -23,8 +23,9 @@
                             </div>
                         </a>
                         <form class="w-full" action="{{ route('product', $item->id) }}" method="post">
+                            @csrf
                             <div class="pl-4">
-                                Quantity: <input class="w-12" type="number" name="" id="" value="1" min="1">
+                                Quantity: <input class="w-12" type="number" name="qty" id="" value="1" min="1">
                             </div>
                             <input class="w-full bg-green-700 text-white my-2 p-3 cursor-pointer" type="submit" value="Add to cart">
                         </form>

@@ -15,7 +15,7 @@
 {{-- Header --}}
 <div class="max-w-screen-2xl m-auto">
     <div class="flex justify-between items-center shadow-sm py-4 px-3 lg:px-24">
-        <div class="lg:hidden">
+        <div onclick="toggleMenu()" class="lg:hidden">
             <ion-icon class="text-2xl" name="menu-outline"></ion-icon>
         </div>
         <div>
@@ -40,24 +40,24 @@
                     <div> | </div>
                     <div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        </form>
                     </div>
                 @else
                     <div>
-                        Login
+                        <a href="{{ route('login') }}">Login</a>
                     </div>
                     <div>
                         |
                     </div>
                     <div>
-                        Register
+                        <a href="{{ route('register') }}">Register</a>
                     </div>
                 @endif
             </div>
@@ -75,4 +75,23 @@
             </a>
         </div>
     </div>
+    <nav>
+        <ul id="toggle-menu" class="hidden lg:block px-28 py-4 text-xl lg:space-x-3 bg-blue-500 space-y-3 lg:space-y-0 text-white">
+            <li class="inline-block"><a href="{{ route('index') }}">Home</a></li>
+            <li class="inline-block"><a href="{{ route('store', 'all') }}">Store</a></li>
+            <li class="inline-block"><a href="#">About</a></li>
+            <li class="inline-block"><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 </div>
+
+<script>
+    function toggleMenu() {
+    var x = document.getElementById("toggle-menu");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>

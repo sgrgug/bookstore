@@ -4,7 +4,9 @@
         <div class="px-5 py-1 lg:px-24 my-16">
 
 
-
+            @if (session()->has('status'))
+                <div class="bg-blue-500 text-lg text-white px-7 py-3">{{ session('status') }}</div>
+            @endif
             <div class="w-full overflow-hidden">
                 <div class="w-full lg:w-[72%] float-left py-4 px-2 lg:px-5 border-2 m-2">
                     <span class="text-blue-500 font-bold">My Carts: </span>{{ $mycarts_no_of_items }}
@@ -20,7 +22,7 @@
                                     </div>
                                 </div>
                                 <div class="col-span-1">
-                                    <span class="font-bold text-sm md:text-xl">Rs. {{ $mycart->total }}.00</span>
+                                    <span class="font-bold text-sm md:text-xl">$ {{ $mycart->total }}.00</span>
                                 </div>
                                 <div class="col-span-1">
                                     <form action="{{ route('my_cart_delete', $mycart->id) }}" method="post">
@@ -36,7 +38,7 @@
                 <div class="w-full lg:w-[23%] float-left m-2 border-[1px]">
                     <div class="flex justify-between items-center p-3">
                         <div>Grand Total:</div>
-                        <div class="font-bold">Rs. {{ $mycarts_total }}.00</div>
+                        <div class="font-bold">$ {{ $mycarts_total }}.00</div>
                     </div>
                     <hr class="w-[90%] m-auto">
                     <div class="py-2 px-3">
@@ -45,7 +47,12 @@
                             <img class="h-8" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpF1IqCHTpWxhp8N1xLJkHtX2dqp6jrCL3Un4wdlPxDAnl03ejI7qH8oSu7XlmnjKv930&usqp=CAU" alt="">
                         </div>
                         <div class="bg-blue-500 text-center text-white py-2 rounded-lg m-1"><a href="{{ route('store','all') }}">Continue Shopping</a></div>
-                        <div class="bg-green-500 text-center text-white py-2 rounded-lg m-1"><a href="#">Pay with Esewa</a></div>
+                        <div class="bg-green-500 text-center text-white py-2 rounded-lg m-1">
+                            <form action="{{ route('esewa') }}" method="post">
+                                @csrf
+                                <input class="cursor-pointer" type="submit" value="Pay With Esewa">
+                            </form>
+                        </div>
                         <div class="bg-yellow-500 text-center text-white py-2 rounded-lg m-1"><a href="#">Checkout</a></div>
                     </div>
                 </div>
