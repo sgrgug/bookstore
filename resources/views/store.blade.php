@@ -1,4 +1,5 @@
 <x-app-layout>
+    @include('layouts.navigation')
 
     <div class="text-4xl font-bold bg-neutral-300 p-10 lg:p-16">Our Store</div>
 

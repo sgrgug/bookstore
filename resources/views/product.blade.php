@@ -1,4 +1,5 @@
 <x-app-layout>
+    @include('layouts.navigation')
 
 
     <div class="max-w-screen-2xl m-auto">

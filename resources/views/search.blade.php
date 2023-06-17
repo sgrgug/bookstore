@@ -1,4 +1,5 @@
 <x-app-layout>
+    @include('layouts.navigation')
 
     <div class="text-xl font-bold bg-neutral-300 p-7 lg:p-12">Your Search: {{ $search }}</div>
 

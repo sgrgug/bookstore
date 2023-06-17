@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\MyCartController;
 use App\Http\Controllers\EsewaController;
+use App\Http\Controllers\Admin\AdminIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,6 @@ use App\Http\Controllers\EsewaController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
 
 Route::get('/product/{id}', [ProductController::class, "showProduct"])->name('product');
 Route::get('/search', [SearchController::class, "search"])->name('search');
@@ -33,6 +31,9 @@ Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -48,6 +49,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/esewa', [EsewaController::class, 'esewaPay'])->name('esewa');
     Route::get('/success', [EsewaController::class, 'esewaPaySuccess']);
     Route::get('/failure', [EsewaController::class, 'esewaPayFailure']);
+});
+
+Route::middleware('auth', 'isAdmin')->group(function (){
+    Route::get('/admin-panel/', [AdminIndexController::class, 'index'])->name('admin.index');
+    Route::get('/admin-panel/delete/{id}', [AdminIndexController::class, 'delete']);
 });
 
 require __DIR__.'/auth.php';
