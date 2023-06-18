@@ -32,7 +32,13 @@ Route::get('/store/{name}', [ProductController::class, "showAllProducts"])->name
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        // return view('dashboard');
+
+        if(auth()->user()->role == 'admin'){
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->route('index');
+        }
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -54,6 +60,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'isAdmin')->group(function (){
     Route::get('/admin-panel/', [AdminIndexController::class, 'index'])->name('admin.index');
     Route::get('/admin-panel/delete/{id}', [AdminIndexController::class, 'delete']);
+    
+    
+    Route::get('/admin-panel/book', [AdminIndexController::class, 'book']);
 });
 
 require __DIR__.'/auth.php';

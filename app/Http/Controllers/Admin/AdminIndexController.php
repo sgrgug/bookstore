@@ -14,7 +14,7 @@ class AdminIndexController extends Controller
         $user_count = User::count();
         $book_count = Book::count();
 
-        $users = User::all();
+        $users = User::paginate(8);
 
         return view('admin.index', compact('user_count', 'book_count', 'users'));
     }

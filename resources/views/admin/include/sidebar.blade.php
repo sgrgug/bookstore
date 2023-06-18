@@ -24,13 +24,23 @@
                         class="w-full px-4 py-2 pl-12 rounded shadow outline-none" placeholder="Search...">
             </li>
             <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
-                <a href="#" class="inline-block w-full h-full px-3 py-2 font-bold text-white">
+                <a href="{{ route('admin.index') }}" class="inline-block w-full h-full px-3 py-2 font-bold text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-6 h-6 mr-2 -mt-2"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                     Home
+                </a>
+            </li>
+            <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
+                <a href="#" class="inline-block w-full h-full px-3 py-2 font-bold text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-6 h-6 mr-2 -mt-2"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    Book
                 </a>
             </li>
             <li class="mb-2 rounded hover:shadow hover:bg-gray-800">
@@ -52,6 +62,17 @@
                     </svg>
                     Inbox
                 </a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>
