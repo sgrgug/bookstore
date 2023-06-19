@@ -8,7 +8,7 @@ use App\Models\Order;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
-require '../vendor/autoload.php';
+// require 'vendor/autoload.php';
 use Cixware\Esewa\Client;
 use Cixware\Esewa\Config;
 

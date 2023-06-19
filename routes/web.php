@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\MyCartController;
 use App\Http\Controllers\EsewaController;
 use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ Route::middleware('auth', 'isAdmin')->group(function (){
     Route::get('/admin-panel/delete/{id}', [AdminIndexController::class, 'delete']);
     
     
-    Route::get('/admin-panel/book', [AdminIndexController::class, 'book']);
+    Route::resource('/admin-panel/books', BookController::class);
 });
 
 require __DIR__.'/auth.php';

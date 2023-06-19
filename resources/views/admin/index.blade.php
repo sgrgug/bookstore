@@ -7,9 +7,8 @@
         @include('admin.include.sidebar')
 
 
-
         <div class="w-full px-4 py-2 bg-gray-200 lg:w-full">
-            <div class="container mx-auto mt-12">
+            <div class="container mx-auto mt-4">
                 <div class="grid gap-4 lg:grid-cols-3">
                     <div class="flex items-center px-4 py-6 bg-white rounded-md shadow-md">
                         <div class="p-3 bg-indigo-600 rounded">
@@ -83,9 +82,6 @@
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             Status</th>
-                                        {{-- <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Edit</th> --}}
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             Delete</th>
