@@ -9,7 +9,7 @@
 
     <div class="max-w-screen-2xl m-auto">
         <div class="px-5 py-1 lg:px-24 my-16">
-            <h1 class="text-2xl font-bold my-4">Popular Book</h1>
+            <h1 class="text-2xl font-bold my-4">Popular Book--</h1>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 @foreach ($pop_books as $book)
